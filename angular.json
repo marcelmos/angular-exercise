@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-course-practical-exercise"
+    }
+  },
+  "defaultProject": "angular-course-practical-exercise",
+  "cli": {
+    "analytics": false
+  }
 }
