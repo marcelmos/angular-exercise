@@ -12,19 +12,25 @@
       <ul>
         <li *ngFor="let toDo of taskList; let indexOf = index">
           <div [id]="indexOf" #item>
-            {{toDo.taskName}}
-            <!-- <button [value]="item.id" (click)="deleteThis()">Usuń</button>
-            <button [value]="item.id" (click)="completeThis()">Zakończone</button> -->
+            {{toDo}}
+            <button [value]="item.id" (click)="deleteThis($event)">Usuń</button>
+            <button [value]="item.id" (click)="completeThis($event)">Zakończone</button>
           </div>
         </li>
       </ul>
     </div>
 
-    <div>
-      <p>Zadania wykonane:</p>
-      <ul>
-        <li></li>
-      </ul>
+    <div *ngIf="completedTaskList.length>0; else isEmpty">
+        <p>Zadania wykonane: {{completedTaskList.length}}</p>
+        <ul>
+          <li *ngFor="let doneTask of completedTaskList">
+            <div>{{doneTask}}</div>
+          </li>
+        </ul>
     </div>
+    <ng-template #isEmpty>
+      <p>Zadania wykonane:</p>
+    </ng-template>
+
   </div>
 </div>

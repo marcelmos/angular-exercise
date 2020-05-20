@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   newTask = '';
-  taskList = new Array<Task>();
+  taskList = [];
+  completedTaskList = [];
   setNewTask = false;
 
   createNewTask(event){
@@ -15,24 +16,15 @@ export class AppComponent {
   }
 
   addToTaskList() {
-    this.setNewTask = true;
+    if (this.newTask.length > 0) this.taskList.push(this.newTask);
   }
 
-  // deleteThis() {
-  // }
-
-  // completeThis() {
-  // }
-
-  constructor(){
-    if (this.newTask.length > 0 && this.setNewTask){
-      this.taskList.push(new Task(this.newTask, false));
-      this.setNewTask = false;
-    }
+  deleteThis(event) {
+    this.taskList.splice(event.target.value, 1);
   }
-}
 
-class Task{
-  constructor(public taskName: string, public status: boolean){
+  completeThis(event) {
+    this.completedTaskList.push(this.taskList[event.target.value]);
+    this.taskList.splice(event.target.value, 1);
   }
 }
