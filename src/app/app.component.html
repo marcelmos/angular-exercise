@@ -1,7 +1,7 @@
 <div>
   <div class="container">
     <div>
-      <input (input)="createNewTask($event)">
+      <input [value]="newTask" (input)="createNewTask($event)">
       <button (click)="addToTaskList()">Dodaj</button>
     </div>
   </div>
@@ -13,8 +13,8 @@
         <li *ngFor="let toDo of taskList; let indexOf = index">
           <div [id]="indexOf" #item>
             {{toDo}}
-            <button [value]="item.id" (click)="deleteThis($event)">Usuń</button>
-            <button [value]="item.id" (click)="completeThis($event)">Zakończone</button>
+            <button [className]="btnDelete" [value]="item.id" (click)="deleteThis($event)">Usuń</button>
+            <button [className]="btnComplete" [value]="item.id" (click)="completeThis($event)">Zakończone</button>
           </div>
         </li>
       </ul>
@@ -24,7 +24,7 @@
         <p>Zadania wykonane: {{completedTaskList.length}}</p>
         <ul>
           <li *ngFor="let doneTask of completedTaskList">
-            <div>{{doneTask}}</div>
+            <div [className]="classTaskDone">{{doneTask}}</div>
           </li>
         </ul>
     </div>

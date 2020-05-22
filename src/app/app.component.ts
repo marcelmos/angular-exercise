@@ -10,6 +10,9 @@ export class AppComponent {
   taskList = [];
   completedTaskList = [];
   setNewTask = false;
+  classTaskDone = "done";
+  btnDelete = "btn-delete";
+  btnComplete = "btn-complete";
 
   createNewTask(event){
     this.newTask = event.target.value;
@@ -17,6 +20,7 @@ export class AppComponent {
 
   addToTaskList() {
     if (this.newTask.length > 0) this.taskList.push(this.newTask);
+    this.newTask = "";
   }
 
   deleteThis(event) {
