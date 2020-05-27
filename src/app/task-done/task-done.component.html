@@ -1,0 +1,11 @@
+<div *ngIf="completedTaskList.length > 0; else isEmpty">
+  <p>Zadania wykonane: {{completedTaskList.length}}</p>
+  <ul>
+    <li *ngFor="let doneTask of completedTaskList">
+      {{doneTask}}
+    </li>
+  </ul>
+</div>
+<ng-template #isEmpty>
+  <p>Brak wykonanych zadań.</p>
+</ng-template>

@@ -8,3 +8,7 @@ This is exercise from angular course.
 [DONE] Add delete and complete task function to buttons.
 [DONE] Add counter of how many task completed.
 [DONE] Add complete task list.
+
+## Changes
+
+Refractored code. Task input, actual tasks, and completed tasks now as separate components.

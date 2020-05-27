@@ -6,29 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  newTask = '';
-  taskList = [];
-  completedTaskList = [];
-  setNewTask = false;
-  classTaskDone = "done";
-  btnDelete = "btn-delete";
-  btnComplete = "btn-complete";
 
-  createNewTask(event){
-    this.newTask = event.target.value;
+  taskList: Array<string> = [];
+  completedTaskList: Array<string> = [];
+
+  addToTaskList(task: string) {
+    this.taskList.push(task);
   }
 
-  addToTaskList() {
-    if (this.newTask.length > 0) this.taskList.push(this.newTask);
-    this.newTask = "";
+  remove(task: string) {
+    this.taskList = this.taskList.filter(e => e !== task);
   }
 
-  deleteThis(event) {
-    this.taskList.splice(event.target.value, 1);
-  }
-
-  completeThis(event) {
-    this.completedTaskList.push(this.taskList[event.target.value]);
-    this.taskList.splice(event.target.value, 1);
+  done(task: string) {
+    this.completedTaskList.push(task);
+    this.remove(task);
   }
 }
