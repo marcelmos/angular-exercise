@@ -11,4 +11,4 @@ This is exercise from angular course.
 
 ## Changes
 
-Refractored code. Task input, actual tasks, and completed tasks now as separate components.
+Refactored code. Task input, actual tasks, and completed tasks now as separate components.
