@@ -7,6 +7,8 @@ import {FormsModule} from '@angular/forms';
 import { TodoTaskComponent } from './todo-task/todo-task.component';
 import { TaskDoneComponent } from './task-done/task-done.component';
 import { TasksService } from './services/task.service';
+import { CheckedDirective } from './shared/checked.directive';
+import { DateDirective } from './shared/date.directive';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { TasksService } from './services/task.service';
     AddTaskComponent,
     TodoTaskComponent,
     TaskDoneComponent,
+    CheckedDirective,
+    DateDirective,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { TasksService } from '../services/task.service';
+import { Task } from '../model/task';
 
 @Component({
   selector: 'app-todo-task',
@@ -8,10 +9,11 @@ import { TasksService } from '../services/task.service';
 })
 export class TodoTaskComponent implements OnInit {
 
-  tasksList = [];
+  tasksList: Array<Task> = [];
 
   constructor(private tasksService: TasksService) {
-    tasksService.getTaskListObs().subscribe((tasks: Array<string>) => {
+    console.log('TodoTaskComponent');
+    this.tasksService.getTaskListObs().subscribe((tasks: Array<Task>) => {
       this.tasksList = tasks;
     });
    }
@@ -19,11 +21,12 @@ export class TodoTaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  remove(task: string){
+  remove(task: Task){
     this.tasksService.remove(task);
   }
 
-  done(task: string){
+  done(task: Task){
+    task.end = new Date();
     this.tasksService.done(task);
   }
 

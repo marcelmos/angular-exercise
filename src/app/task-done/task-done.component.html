@@ -1,8 +1,8 @@
 <div *ngIf="tasksDone.length > 0; else isEmpty">
   <p>Zadania wykonane: {{tasksDone.length}}</p>
   <ul>
-    <li *ngFor="let doneTask of tasksDone">
-      {{doneTask}}
+    <li appChecked appDate [date]="doneTask.end" *ngFor="let doneTask of tasksDone">
+      {{doneTask.name}}
     </li>
   </ul>
 </div>
